@@ -2,7 +2,7 @@ from fastmcp import FastMCP
 from typing import List
 import random
 
-mcp = FastMCP("Hello World", stateless_http=True)
+mcp = FastMCP("Hello World")
 
 @mcp.tool
 def roll_dice(n_dice: int) -> list[int]:
@@ -14,4 +14,5 @@ if __name__ == '__main__':
     mcp.run(transport="http",
         host="0.0.0.0",           # Bind to all interfaces
         port=8000,                # Custom port
+        stateless_http=True,
         log_level="DEBUG")
