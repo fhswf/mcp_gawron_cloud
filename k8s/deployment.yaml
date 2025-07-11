@@ -16,7 +16,7 @@ spec:
       automountServiceAccountToken: false
       containers:
       - name: mcp
-        image: ghcr.io/fhswf/mcp-bt:latest
+        image: ghcr.io/fhswf/mcp:0.0.0
         ports:
         - containerPort: 8000
 ---
