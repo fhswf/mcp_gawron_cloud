@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.3 (2025-07-14)
+
+### Bug Fixes
+
+- Kustomization of deployment
+  ([`de61e96`](https://github.com/fhswf/mcp.gawron.cloud/commit/de61e962dec095322edaa11e03d968d331f5279b))
+
+
 ## v0.1.2 (2025-07-14)
 
 ### Bug Fixes
