@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.4 (2025-07-14)
+
+### Bug Fixes
+
+- Deployment port
+  ([`b5aa9bd`](https://github.com/fhswf/mcp.gawron.cloud/commit/b5aa9bdb3289327bdac01e66a66d61723be1a9da))
+
+
 ## v0.1.3 (2025-07-14)
 
 ### Bug Fixes

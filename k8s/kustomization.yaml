@@ -8,4 +8,4 @@ resources:
 images:
 - name: mcp
   newName: ghcr.io/fhswf/mcp
-  newTag: "0.1.3"
+  newTag: "0.1.4"
