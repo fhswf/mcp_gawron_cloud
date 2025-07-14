@@ -57,7 +57,7 @@ def roll_dice(n_dice: int) -> list[int]:
 # entry point - not needed but suggested
 if __name__ == '__main__':
     mcp.run(transport="http",
-        host="127.0.0.1",           # Bind to all interfaces
+        host="0.0.0.0",           # Bind to all interfaces
         port=8000,                # Custom port
         stateless_http=True,
         log_level="DEBUG")

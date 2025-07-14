@@ -3,6 +3,8 @@ kind: Kustomization
 
 resources:
 - deployment.yaml
+- ingress.yaml
+
 images:
 - name: mcp
   newName: ghcr.io/fhswf/mcp
