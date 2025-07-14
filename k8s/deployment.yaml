@@ -19,7 +19,7 @@ spec:
         image: ghcr.io/fhswf/mcp:0.0.1
         ports:
         - containerPort: 8000
-      - env:
+        env:
         - name: OPENAI_API_KEY
           valueFrom:
             secretKeyRef:
