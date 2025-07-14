@@ -24,7 +24,6 @@ spec:
           valueFrom:
             secretKeyRef:
               name: openai-api-key
-              namespace: mcp
               key: api_key
 
 ---
