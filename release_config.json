@@ -10,7 +10,7 @@
         },
         "build_command_env": [],
         "version_variables": [
-            "k8s/deployment.yaml:image"
+            "k8s/kustomization.yaml:newTag"
         ],
         "changelog": {
             "default_templates": {
