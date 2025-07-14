@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v0.1.2 (2025-07-14)
+
+### Bug Fixes
+
+- Deployment env spec
+  ([`38c4445`](https://github.com/fhswf/mcp.gawron.cloud/commit/38c44456ff286da323e53839e3b31bb8375786df))
+
+- Deployment env spec
+  ([`2add062`](https://github.com/fhswf/mcp.gawron.cloud/commit/2add062d4de3b514c883b23ff71f50c77912f7d1))
+
+
 ## v0.1.1 (2025-07-14)
 
 ### Bug Fixes
