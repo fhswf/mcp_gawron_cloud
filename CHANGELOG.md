@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.1.5 (2025-07-15)
+
+### Bug Fixes
+
+- Add ingress for mcp.fh-swf.cloud
+  ([`58bed67`](https://github.com/fhswf/mcp.gawron.cloud/commit/58bed67c15fa6a223bd3b964d99a5f441007d93b))
+
+### Chores
+
+- Add ingress for mcp.fh-swf.cloud
+  ([`1b9d087`](https://github.com/fhswf/mcp.gawron.cloud/commit/1b9d087975dcfcf9a0c4976019b35de36e98aed4))
+
+
 ## v0.1.4 (2025-07-14)
 
 ### Bug Fixes
