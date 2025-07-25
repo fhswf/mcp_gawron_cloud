@@ -1,7 +1,20 @@
 # CHANGELOG
 
 
+## v0.2.0 (2025-07-25)
+
+### Features
+
+- Add party argument to `get_party_programs`
+  ([`0bf3748`](https://github.com/fhswf/mcp.gawron.cloud/commit/0bf374865484d330b7b5491b3aae6ec446140997))
+
+
 ## v0.1.5 (2025-07-15)
+
+### Bug Fixes
+
+- Add ingress for mcp.fh-swf.cloud
+  ([`58bed67`](https://github.com/fhswf/mcp.gawron.cloud/commit/58bed67c15fa6a223bd3b964d99a5f441007d93b))
 
 ### Chores
 
@@ -19,7 +32,7 @@
 
 ## v0.1.3 (2025-07-14)
 
-### Chores
+### Bug Fixes
 
 - Kustomization of deployment
   ([`de61e96`](https://github.com/fhswf/mcp.gawron.cloud/commit/de61e962dec095322edaa11e03d968d331f5279b))
