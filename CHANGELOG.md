@@ -3,11 +3,6 @@
 
 ## v0.1.5 (2025-07-15)
 
-### Bug Fixes
-
-- Add ingress for mcp.fh-swf.cloud
-  ([`58bed67`](https://github.com/fhswf/mcp.gawron.cloud/commit/58bed67c15fa6a223bd3b964d99a5f441007d93b))
-
 ### Chores
 
 - Add ingress for mcp.fh-swf.cloud
@@ -24,7 +19,7 @@
 
 ## v0.1.3 (2025-07-14)
 
-### Bug Fixes
+### Chores
 
 - Kustomization of deployment
   ([`de61e96`](https://github.com/fhswf/mcp.gawron.cloud/commit/de61e962dec095322edaa11e03d968d331f5279b))

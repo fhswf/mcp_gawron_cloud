@@ -1,5 +1,6 @@
 from fastmcp import FastMCP
-from typing import List
+from typing import List, Annotated
+from pydantic import Field
 import logging
 import os
 import random
@@ -24,26 +25,33 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 DATABASE_PATH = "./chroma/"
 EMBEDDING_MODEL = "text-embedding-ada-002"
 
+server_instructions = """
+This MCP server provides search and document retrieval capabilities 
+for deep research. It provides the following tools:
+1. `get_party_programs`: Retrieve party programs based on a user query.
+2. `roll_dice`: Roll a specified number of 6-sided dice and return the results.
+"""
 
-mcp = FastMCP("Hello World")
+mcp = FastMCP(name = "FH-SWF MCP server")
 
 embedding = OpenAIEmbeddings(model=EMBEDDING_MODEL, api_key=OPENAI_API_KEY)
 
 client = chromadb.PersistentClient(
     path=os.path.join(DATABASE_PATH, f"{EMBEDDING_MODEL}"))
 
-chroma = Chroma(
+party_store = Chroma(
     collection_name=f"BTW2025",
     client=client,
     create_collection_if_not_exists=False
 )
 
-retriever = PartyRetriever.PartyRetriever(chroma, embedding)
+party_retriever = PartyRetriever.PartyRetriever(party_store, embedding)
 
 @mcp.tool
-def get_party_programs(query: str) -> List[Document]:
+def get_party_programs(query: Annotated[str, Field(description="The user query")],
+                       party: Annotated[str, Field(description="the party the query relates to")] = "") -> List[Document]:
     """Retrieve party programs based on the query."""
-    results = retriever.invoke(query)
+    results = party_retriever.invoke(query, party)
     logger.info(f"Retrieved {len(results)} documents for query: {query}")
     return [doc for doc in results]
 

@@ -33,11 +33,16 @@ class PartyRetriever(BaseRetriever):
     def _get_relevant_documents(
         self,
         query: str,
+        party: str = "",
         *,
         run_manager: CallbackManagerForRetrieverRun,
     ) -> List[Document]:
         results = []
         query_embedding = self.embeddings.embed_query(query)
+        if len(party) > 0:
+            # If a party is specified, filter by party
+            results = self.vectorstore.similarity_search_by_vector(
+                query_embedding, k=3, filter={'party': party})
         for party in self.docs:
             results += self.vectorstore.similarity_search_by_vector(
                 query_embedding, k=3, filter={'party': party})
