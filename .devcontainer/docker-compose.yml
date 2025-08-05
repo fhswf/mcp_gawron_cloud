@@ -22,11 +22,9 @@ services:
     restart: unless-stopped
     volumes:
       - neo4j-data:/data/db
+    environment:
+      - NEO4J_AUTH=none
 
-
-
-    # Add "forwardPorts": ["27017"] to **devcontainer.json** to forward MongoDB locally.
-    # (Adding the "ports" property to this file will not forward from a Codespace.)
 
 volumes:
   neo4j-data:
