@@ -33,6 +33,8 @@ from docling.backend.docling_parse_v4_backend import DoclingParseV4DocumentBacke
 from docling_core.transforms.chunker.tokenizer.huggingface import HuggingFaceTokenizer
 from transformers import AutoTokenizer
 
+from langchain_neo4j import Neo4jVector
+
 import typer
 
 from . import logger
@@ -66,15 +68,18 @@ embeddings = OpenAIEmbeddings(model=OPENAI_EMBEDDINGS_MODEL)
 
 collection = "FH-SWF"
 
-# Create a Chroma collection if it doesn't exist
-chroma_client = chromadb.HttpClient(host='localhost', port=8000)
-collection_path = os.path.join(directory, collection)
-db = Chroma(
-    collection_name=collection,
-    embedding_function=embeddings,
-    client=chroma_client,
-)
+index_name = "vector"  # default index name
+url = "bolt://localhost:7687"
+username = "neo4j"
+password = "neo4j"
 
+store = Neo4jVector.from_existing_index(
+    embeddings,
+    url=url,
+    username=username,
+    password=password,
+    index_name=index_name,
+)
 
 class FHSWFMetaExtractor(MetaExtractor):
     def __init__(self, *args, **kwargs):
