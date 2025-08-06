@@ -81,6 +81,7 @@ store = Neo4jVector(
     index_name=index_name,
 )
 
+
 class FHSWFMetaExtractor(MetaExtractor):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -167,8 +168,11 @@ def index(path: Path) -> str:
         ids=[chunk.metadata.get("sha256", None) for chunk in chunks],
     )
 
-    #docs = filter_complex_metadata(chunks)
-    #logger.info(f"Metadata after filtering: {[d.metadata for d in docs]}")
+    res = store.similarity_search("Internet")
+    logger.info(f"Similarity search result: {res}")
+
+    # docs = filter_complex_metadata(chunks)
+    # logger.info(f"Metadata after filtering: {[d.metadata for d in docs]}")
 
     # Add the document to the collection
     # db.add_documents(docs)
