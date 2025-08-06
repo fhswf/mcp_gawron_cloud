@@ -21,9 +21,12 @@ services:
     image: neo4j:5.26.10-community-bullseye
     restart: unless-stopped
     volumes:
-      - neo4j-data:/data/db
-    environment:
-      - NEO4J_AUTH=neo4j/neo4j
+      - ../neo4j/logs:/logs
+      - ../neo4j/config:/config
+      - ../neo4j/data:/data
+      - ../neo4j/plugin:/plugins
+    #environment:
+    #  - NEO4J_AUTH=neo4j/secret
 
 
 volumes:
