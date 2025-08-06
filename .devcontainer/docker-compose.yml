@@ -25,8 +25,8 @@ services:
       - ../neo4j/config:/config
       - ../neo4j/data:/data
       - ../neo4j/plugin:/plugins
-    #environment:
-    #  - NEO4J_AUTH=neo4j/secret
+    environment:
+      - NEO4J_AUTH=neo4j/secret123
 
 
 volumes:
