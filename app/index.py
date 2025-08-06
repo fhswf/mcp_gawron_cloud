@@ -71,9 +71,9 @@ collection = "FH-SWF"
 index_name = "vector"  # default index name
 url = "bolt://localhost:7687"
 username = "neo4j"
-password = "neo4j"
+password = "secret123"
 
-store = Neo4jVector.from_existing_index(
+store = Neo4jVector(
     embeddings,
     url=url,
     username=username,
@@ -158,8 +158,17 @@ def index(path: Path) -> str:
 
     logger.info(f"Loaded {len(chunks)} chunks from file: {path}")
 
-    docs = filter_complex_metadata(chunks)
-    logger.info(f"Metadata after filtering: {[d.metadata for d in docs]}")
+    texts = [chunk.page_content for chunk in chunks]
+    metadata = [chunk.metadata for chunk in chunks]
+
+    store.add_texts(
+        texts=texts,
+        metadatas=metadata,
+        ids=[chunk.metadata.get("sha256", None) for chunk in chunks],
+    )
+
+    #docs = filter_complex_metadata(chunks)
+    #logger.info(f"Metadata after filtering: {[d.metadata for d in docs]}")
 
     # Add the document to the collection
     # db.add_documents(docs)
